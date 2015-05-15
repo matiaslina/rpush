@@ -58,6 +58,7 @@ describe Rpush::Daemon::Wns::Delivery do
 
   describe "an 200 response with a valid access token" do
     before do
+      allow(app).to receive_messages(access_token_expired?: false)
       allow(response).to receive_messages(code: 200)
     end
 
